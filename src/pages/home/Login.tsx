@@ -96,9 +96,9 @@ export const Login = ({ pathName }: { pathName: string }) => {
             >
               Login
             </Button>
-            <button type="submit">
+            <Button type="submit">
               <Link to="/dashboard/forget-password">Forget Password ?</Link>
-            </button>
+            </Button>
           </form>
         </Paper>
       </Container>

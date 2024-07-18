@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 import { AppDispatch } from '../../redux/store'
 import { resetPassword } from '../../redux/slices/userSlice'
+import { Box, Button, Container, Paper, TextField, Typography } from '@mui/material'
 
 interface DecodedType {
   name: string
@@ -24,30 +25,49 @@ export const ResetPassword = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     dispatch(resetPassword({ password, token }))
-    console.log('Reset Password successfully')
     navigate('/login')
   }
 
   return (
-    <div className="activate-user">
-      <div>
-        <h2>Reset Password</h2>
-        <form onSubmit={handleSubmit} className="login-form">
-          <div className="text-box">
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              value={password}
-              onChange={handleChange}
-              required
-              placeholder="Enter your New Password"
-            />
-          </div>
-          <button type="submit">Reset Password</button>
-        </form>
-      </div>
-    </div>
+    <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+    <Container component="main" maxWidth="xs">
+      <Paper
+        elevation={3}
+        style={{
+          padding: '20px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Typography component="h1" variant="h5">
+        Reset Password
+        </Typography>
+        <form style={{ width: '100%', marginTop: '20px' }} onSubmit={handleSubmit}>
+        <Typography component="h1" variant="h5">
+        Password:
+        </Typography>
+          <TextField
+            type="password"
+            name="password"
+            id="password"
+            value={password}
+            onChange={handleChange}
+            required
+            placeholder="Enter your New Password"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            style={{ marginTop: '20px' }}
+          >
+            Reset Password
+          </Button>
+          </form>
+      </Paper>
+    </Container>
+  </Box>
   )
 }

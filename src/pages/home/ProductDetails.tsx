@@ -44,6 +44,7 @@ export const ProductDetails = () => {
           sx={{ height: 400 }}
           image={singleProduct.image}
           title={singleProduct.title}
+          component="img"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -70,9 +71,7 @@ export const ProductDetails = () => {
             navigate('/')
           }}>
             Back To Shoppinge</Button>
-          <Link to='/cart'>
             <Button size="small" onClick={() => handleAddingCart(singleProduct.slug)}>Add To Cart</Button>
-          </Link>
         </CardActions>
       </Card>
     </div>

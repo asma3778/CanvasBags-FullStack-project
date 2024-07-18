@@ -33,7 +33,6 @@ export const ManageCategory = () => {
     }
   }
 
-
   const handelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCategoryName(event.target.value)
   }

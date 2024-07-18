@@ -33,7 +33,6 @@ export const deleteCategory = async (slug: string) => {
 export const createCategory = createAsyncThunk("category/createCategory", async (title: string) => {
   try {
     const response = await api.post(`${baseURL}/categories`, { title: title })
-    console.log(response)
     return response.data
   } catch (error) {
     throw new Error(`Failed to delete Category with this slug ${title}`)

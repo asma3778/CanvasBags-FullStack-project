@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import { AppDispatch } from '../../redux/store'
 import { forgetPassword } from '../../redux/slices/userSlice'
+import { Box, Button, Container, Paper, TextField, Typography } from '@mui/material'
 
 
 export const ForgetPassword = () => {
@@ -16,15 +17,28 @@ export const ForgetPassword = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     dispatch(forgetPassword(email))
-    console.log('email has been send')
   }
   return (
-    <div className="container">
-      ForgetPassword
+    <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+        <Container component="main" maxWidth="xs">
+          <Paper
+            elevation={3}
+            style={{
+              padding: '20px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Typography component="h1" variant="h5">
+            ForgetPassword
+            </Typography>
       <form onSubmit={handleSubmit} action="login-form">
-        <div className="">
-          <label htmlFor="email">Email:</label>
-          <input
+        <Typography component="h1" variant="h5">
+            Email:
+            </Typography>
+          {/* <label htmlFor="email">Email:</label> */}
+          <TextField
             type="email"
             name="email"
             id="email"
@@ -33,9 +47,18 @@ export const ForgetPassword = () => {
             required
             placeholder="Enter your Email"
           />
-        </div>
-        <button type="submit">Send Reset Email</button>
+          <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                style={{ marginTop: '20px' }}
+              >
+                Send Reset Email
+              </Button>
       </form>
-    </div>
+      </Paper>
+      </Container>
+      </Box>
   )
 }

@@ -18,7 +18,6 @@ export const fetchUsers = createAsyncThunk("User/fetchUsers", async () => {
 export const deleteUser = createAsyncThunk("User/deleteUser", async (userName: string) => {
   try {
     const response = await api.delete(`${baseURL}/users/${userName}`)
-    console.log(response.data)
     return response.data.payload.users
   } catch (error) {
     throw new Error(`Failed to delete user with this user name ${userName}`)
@@ -31,8 +30,6 @@ export const updateTheUser = createAsyncThunk('User/updateTheUser',
     const response = await api.put(`${baseURL}/users/${usersData.userName}`, usersData
     //  {firstName: usersData.firstName, lastName: usersData.lastName}
      )
-    console.log(usersData)
-    console.log(response.data)
 
     return usersData
   } catch (error) {
@@ -61,8 +58,6 @@ export const unBanUser = async (userName: string) => {
 export const registerUser = async (user: object) => {
   // try {
     const response = await api.post(`${baseURL}/users/process-register`, user)
-    console.log(response.data);
-    
     return response.data
   // } catch (error) {
   //   throw new Error('Failed to create user')
@@ -72,8 +67,6 @@ export const registerUser = async (user: object) => {
 export const activateUser = createAsyncThunk("Users/activateUser", async (token: string) => {
   // try {
     const response = await api.post(`${baseURL}/users/activate/`, { token })
-    console.log(response);
-    
     return response.data
   // } catch (error) {
   //   throw new Error('Failed to activate user')

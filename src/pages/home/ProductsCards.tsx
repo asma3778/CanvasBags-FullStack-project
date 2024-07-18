@@ -88,18 +88,19 @@ export const ProductsCards = () => {
                   sx={{ height: 250 }}
                   image={product.image}
                   title={product.title}
+                  key={product.image}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography gutterBottom variant="h5" component="div" key={product.title}>
                     {product.title}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.secondary"key={product.description}>
                     {product.description}<br />
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     {product.quantity}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.secondary" key={product.price}>
                     {product.price} $
                   </Typography>
                 </CardContent>

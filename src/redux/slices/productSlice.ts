@@ -17,7 +17,6 @@ export const fetchProductsAdmin = createAsyncThunk("product/fetchProducts", asyn
 export const fetchProducts = createAsyncThunk("product/fetchProducts", async (pagination: { page: number; limit: number }) => {
   try {
     const response = await api.get(`${baseURL}/products/?page=${pagination.page}&limit=${pagination.limit}`)
-    console.log(response.data)
     const products = response.data.payload.products
     return products;
   } catch (error) {
